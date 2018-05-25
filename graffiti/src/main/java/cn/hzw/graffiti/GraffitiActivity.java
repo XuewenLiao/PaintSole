@@ -58,9 +58,8 @@ import cn.hzw.graffiti.bean.imageMessage;
 import cn.hzw.graffiti.imagepicker.ImageSelectorView;
 
 /**
- * 涂鸦界面，根据GraffitiView的接口，提供页面交互
- * （这边代码和ui比较粗糙，主要目的是告诉大家GraffitiView的接口具体能实现什么功能，实际需求中的ui和交互需另提别论）
- * Created by huangziwei(154330138@qq.com) on 2016/9/3.
+ *
+ * Created by XuewenLiao on 2018/5/26.
  */
 public class GraffitiActivity extends Activity {
 
@@ -68,6 +67,10 @@ public class GraffitiActivity extends Activity {
 
     public static final int RESULT_ERROR = -111; // 出现错误
 
+    public static final String IP = "http://49.123.112.217:8000/gan/";
+
+    private int type = 1;// 1 建筑；2 街景；3 包；4 鞋
+    private String URL = "";
     /**
      * 启动涂鸦界面
      *
@@ -163,6 +166,19 @@ public class GraffitiActivity extends Activity {
                     break;
                 case 2:
                     Toast.makeText(GraffitiActivity.this,"联网失败",Toast.LENGTH_SHORT);
+                case 3:
+                    int painttype = (int) msg.obj;
+                    if (painttype == 1){    //画建筑
+                        URL = IP + "facades_B2A/";
+                    }else if (painttype == 2){  //画街景
+                        URL = IP + "cityscapes_B2A/";
+                    }else if (painttype == 3){  //画包
+                        URL = IP + "handbags_B2A/";
+                    }else if (painttype == 4){  //画鞋
+                        URL = IP + "shoes_B2A/";
+                    }else {
+                        Toast.makeText(GraffitiActivity.this,"您还什么都没画",Toast.LENGTH_SHORT);
+                    }
             }
         }
     };
@@ -345,7 +361,7 @@ public class GraffitiActivity extends Activity {
 
 
         mOnClickListener = new GraffitiOnClickListener();
-        mTouchGestureDetector = new TouchGestureDetector(this, new GraffitiGestureListener());
+//        mTouchGestureDetector = new TouchGestureDetector(this, new GraffitiGestureListener());
 //
         initView();
     }
@@ -650,14 +666,20 @@ public class GraffitiActivity extends Activity {
 
     private void initView() {
 
-
+        //颜色按钮
         findViewById(R.id.btn_wall).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_door).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_window).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_trim).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_column).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_floor).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_grass).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_car).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_tree).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_lamp).setOnClickListener(mOnClickListener);
 
-        findViewById(R.id.btn_cat).setOnClickListener(mOnClickListener);
+
+        findViewById(R.id.btn_cityscapes).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_shoes).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_bag).setOnClickListener(mOnClickListener);
 
@@ -733,45 +755,45 @@ public class GraffitiActivity extends Activity {
         });
 
         //  放大缩小按钮监听
-        ScaleOnTouchListener onTouchListener = new ScaleOnTouchListener();
-        findViewById(R.id.btn_amplifier).setOnTouchListener(onTouchListener);
-        findViewById(R.id.btn_reduce).setOnTouchListener(onTouchListener);
+//        ScaleOnTouchListener onTouchListener = new ScaleOnTouchListener();
+//        findViewById(R.id.btn_amplifier).setOnTouchListener(onTouchListener);
+//        findViewById(R.id.btn_reduce).setOnTouchListener(onTouchListener);
 
         // 添加涂鸦的触摸监听器，移动图片位置
-        mGraffitiView.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // 隐藏设置面板
-                if (!mBtnHidePanel.isSelected()  // 设置面板没有被隐藏
-                        && mGraffitiParams.mChangePanelVisibilityDelay > 0) {
-                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                        case MotionEvent.ACTION_DOWN:
-                            mSettingsPanel.removeCallbacks(mHideDelayRunnable);
-                            mSettingsPanel.removeCallbacks(mShowDelayRunnable);
-                            //触摸屏幕超过一定时间才判断为需要隐藏设置面板
-                            mSettingsPanel.postDelayed(mHideDelayRunnable, mGraffitiParams.mChangePanelVisibilityDelay);
-                            break;
-                        case MotionEvent.ACTION_CANCEL:
-                        case MotionEvent.ACTION_UP:
-                            mSettingsPanel.removeCallbacks(mHideDelayRunnable);
-                            mSettingsPanel.removeCallbacks(mShowDelayRunnable);
-                            //离开屏幕超过一定时间才判断为需要显示设置面板
-                            mSettingsPanel.postDelayed(mShowDelayRunnable, mGraffitiParams.mChangePanelVisibilityDelay);
-                            break;
-                    }
-                } else if (mBtnHidePanel.isSelected() && mGraffitiView.getAmplifierScale() > 0) {
-                    mGraffitiView.setAmplifierScale(-1);
-                }
-
-                if (!mIsMovingPic) { // 非移动缩放模式
-                    return false;  // 交给下一层的涂鸦View处理
-                }
-                // 处理手势
-                mTouchGestureDetector.onTouchEvent(event);
-                return true;
-            }
-        });
+//        mGraffitiView.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                // 隐藏设置面板
+//                if (!mBtnHidePanel.isSelected()  // 设置面板没有被隐藏
+//                        && mGraffitiParams.mChangePanelVisibilityDelay > 0) {
+//                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+//                        case MotionEvent.ACTION_DOWN:
+//                            mSettingsPanel.removeCallbacks(mHideDelayRunnable);
+//                            mSettingsPanel.removeCallbacks(mShowDelayRunnable);
+//                            //触摸屏幕超过一定时间才判断为需要隐藏设置面板
+//                            mSettingsPanel.postDelayed(mHideDelayRunnable, mGraffitiParams.mChangePanelVisibilityDelay);
+//                            break;
+//                        case MotionEvent.ACTION_CANCEL:
+//                        case MotionEvent.ACTION_UP:
+//                            mSettingsPanel.removeCallbacks(mHideDelayRunnable);
+//                            mSettingsPanel.removeCallbacks(mShowDelayRunnable);
+//                            //离开屏幕超过一定时间才判断为需要显示设置面板
+//                            mSettingsPanel.postDelayed(mShowDelayRunnable, mGraffitiParams.mChangePanelVisibilityDelay);
+//                            break;
+//                    }
+//                } else if (mBtnHidePanel.isSelected() && mGraffitiView.getAmplifierScale() > 0) {
+//                    mGraffitiView.setAmplifierScale(-1);
+//                }
+//
+//                if (!mIsMovingPic) { // 非移动缩放模式
+//                    return false;  // 交给下一层的涂鸦View处理
+//                }
+//                // 处理手势
+//                mTouchGestureDetector.onTouchEvent(event);
+//                return true;
+//            }
+//        });
 
         // 长按标题栏显示原图
         findViewById(R.id.graffiti_txt_title).setOnTouchListener(new View.OnTouchListener() {
@@ -860,6 +882,21 @@ public class GraffitiActivity extends Activity {
                 mDone = true;
             }else if (v.getId() == R.id.btn_column){
                 mGraffitiView.setColor(Color.parseColor("#F20017"));
+                mDone = true;
+            }else if (v.getId() == R.id.btn_floor){
+                mGraffitiView.setColor(Color.parseColor("#8B397D"));
+                mDone = true;
+            }else if (v.getId() == R.id.btn_grass){
+                mGraffitiView.setColor(Color.parseColor("#6CFF9A"));
+                mDone = true;
+            }else if (v.getId() == R.id.btn_car){
+                mGraffitiView.setColor(Color.parseColor("#1E008E"));
+                mDone = true;
+            }else if (v.getId() == R.id.btn_tree){
+                mGraffitiView.setColor(Color.parseColor("#5C912C"));
+                mDone = true;
+            }else if (v.getId() == R.id.btn_lamp){
+                mGraffitiView.setColor(Color.parseColor("#DBDF21"));
                 mDone = true;
             }
 
@@ -998,6 +1035,11 @@ public class GraffitiActivity extends Activity {
 
             if (v.getId() == R.id.btn_hand_write) {//手绘
                 mGraffitiView.setShape(GraffitiView.Shape.HAND_WRITE);
+                mGraffitiView.setPaintSize(1);//设置画笔大小
+                mGraffitiView.setColor(Color.parseColor("#000000"));
+                sendBitmap(R.drawable.canvas);//背景换为白板
+                //隐藏画建筑工具
+                hl_building.setVisibility(View.GONE);
             } else if (v.getId() == R.id.btn_arrow) {
                 mGraffitiView.setShape(GraffitiView.Shape.ARROW);
             } else if (v.getId() == R.id.btn_line) {
@@ -1030,7 +1072,13 @@ public class GraffitiActivity extends Activity {
 //                mGraffitiView.clear();//清屏
 //                mDone = true;
 
-                //点击“画建筑”换背景
+                type = 1;
+                Message msg = new Message();
+                msg.what = 3;
+                msg.obj = type;
+                mHandler.sendMessage(msg);
+
+                //点击“画建筑”换背景（把白板换成蓝色）
                 Bitmap newBitmap = Bitmap.createBitmap(mBitmap.getWidth(),mBitmap.getHeight(),mBitmap.getConfig());
                 Canvas canvas = new Canvas(newBitmap);
                 Paint paint = new Paint();
@@ -1039,6 +1087,7 @@ public class GraffitiActivity extends Activity {
                 mBitmap = newBitmap;
 
                 mGraffitiView.setCavBitmap(mBitmap);
+                //画的形状
                 mGraffitiView.setShape(GraffitiView.Shape.FILL_RECT);
 
                 //出现画建筑工具
@@ -1048,23 +1097,49 @@ public class GraffitiActivity extends Activity {
                 mDone = true;
 
 
-            }else if (v.getId() == R.id.btn_cat){//画猫
+            }else if (v.getId() == R.id.btn_cityscapes){//画街景
 
-                sendBitmap(R.drawable.inputcats);
-                //隐藏画建筑工具
-                hl_building.setVisibility(View.GONE);
+                type = 2;
+                Message msg = new Message();
+                msg.what = 3;
+                msg.obj = type;
+                mHandler.sendMessage(msg);
+
+                sendBitmap(R.drawable.inputcityscapes);
+                mGraffitiView.setShape(GraffitiView.Shape.HAND_WRITE);
+                //出现画建筑工具
+                hl_building.setVisibility(View.VISIBLE);
+                mGraffitiView.setPaintSize(10.5f);
+                mGraffitiView.clear();//清屏
+                mDone = true;
 
             }else if (v.getId() == R.id.btn_shoes){//画鞋
+
+                type = 3;
+                Message msg = new Message();
+                msg.what = 3;
+                msg.obj = type;
+                mHandler.sendMessage(msg);
 
                 sendBitmap(R.drawable.inputshoes);
                 //隐藏画建筑工具
                 hl_building.setVisibility(View.GONE);
+                mGraffitiView.setPaintSize(1);//设置画笔大小
+                mGraffitiView.setColor(Color.parseColor("#000000"));
 
             }else if (v.getId() == R.id.btn_bag){//画包
+
+                type = 4;
+                Message msg = new Message();
+                msg.what = 3;
+                msg.obj = type;
+                mHandler.sendMessage(msg);
 
                 sendBitmap(R.drawable.inputhandbags);
                 //隐藏画建筑工具
                 hl_building.setVisibility(View.GONE);
+                mGraffitiView.setPaintSize(1);//设置画笔大小
+                mGraffitiView.setColor(Color.parseColor("#000000"));
 
             }else if (v.getId() == R.id.btn_test){//生成测试
 
@@ -1289,7 +1364,7 @@ public class GraffitiActivity extends Activity {
             Log.i("644444",base64);
 
             String jsonSend = gson.toJson(new imageMessage("image", base64));
-            RequestParams params = new RequestParams("http://49.123.112.217:8000/gan/facades_B2A/");
+            RequestParams params = new RequestParams(URL);
             params.addHeader("Content-type", "application/json");
             params.setCharset("UTF-8");
             params.setAsJsonContent(true);

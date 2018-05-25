@@ -685,58 +685,6 @@
                 android:textSize="13dp"
                 android:visibility="visible" />
 
-            <Button
-                android:id="@+id/btn_floor"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
-                android:scaleType="centerCrop"
-                android:text="floor"
-                android:textColor="#8B397D"
-                android:textSize="13dp"
-                android:visibility="visible" />
-            <Button
-                android:id="@+id/btn_grass"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
-                android:scaleType="centerCrop"
-                android:text="grass"
-                android:textColor="#6CFF9A"
-                android:textSize="13dp"
-                android:visibility="visible" />
-            <Button
-                android:id="@+id/btn_car"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
-                android:scaleType="centerCrop"
-                android:text="car"
-                android:textColor="#1E008E"
-                android:textSize="13dp"
-                android:visibility="visible" />
-            <Button
-                android:id="@+id/btn_tree"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
-                android:scaleType="centerCrop"
-                android:text="tree"
-                android:textColor="#5C912C"
-                android:textSize="13dp"
-                android:visibility="visible" />
-            <Button
-                android:id="@+id/btn_lamp"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
-                android:scaleType="centerCrop"
-                android:text="lamp"
-                android:textColor="#DBDF21"
-                android:textSize="13dp"
-                android:visibility="visible" />
-
-
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -761,8 +709,7 @@
                     android:layout_height="28dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                    />
+                    android:visibility="visible" />
                 <!--   android:text="手绘"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
@@ -771,26 +718,34 @@
                     android:id="@+id/btn_pen_eraser"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                    android:enabled="false"
-                 />
+                    android:visibility="visible" />
                 <!--    android:text="橡皮擦"
                     android:textColor="#000000"
                     android:textSize="13dp"-->
 
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                   />
+                <!--  android:text="清屏"
+                    android:textColor="#000000"
+                    android:textSize="13dp"-->
 
                 <Button
                     android:id="@+id/btn_line"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                   />
+                    android:visibility="visible" />
                 <!--  android:text="直线"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
@@ -799,12 +754,11 @@
                     android:id="@+id/btn_pen_text"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:enabled="false"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                   />
+                    android:visibility="visible" />
                 <!--  android:text="文字"
                     android:textColor="#000000"
                     android:textSize="13dp"-->
@@ -813,24 +767,22 @@
                     android:id="@+id/btn_fill_rect"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                  />
+                    android:visibility="visible" />
                 <!-- android:text="画建筑"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
 
                 <Button
-                    android:id="@+id/btn_cityscapes"
+                    android:id="@+id/btn_cat"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                  />
+                    android:visibility="visible" />
                 <!-- android:text="画猫"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
@@ -839,11 +791,10 @@
                     android:id="@+id/btn_bag"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                    />
+                    android:visibility="visible" />
                 <!--  android:text="画包"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
@@ -852,30 +803,17 @@
                     android:id="@+id/btn_shoes"
                     android:layout_width="50dp"
                     android:layout_height="28dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
-                   />
+
+                    android:visibility="visible" />
 
                 <!--android:background="#000000"
                 android:background="@android:color/transparent"
                 android:text="画鞋"
                     android:textColor="#000000"
                     android:textSize="10dp"-->
-
-
-                <Button
-                    android:id="@+id/btn_clear"
-                    android:layout_width="50dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="90dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="centerCrop"
-                    />
-                <!--  android:text="清屏"
-                    android:textColor="#000000"
-                    android:textSize="13dp"-->
             </LinearLayout>
 
 
@@ -883,6 +821,7 @@
             android:id="@+id/btn_test"
             android:layout_width="30dp"
             android:layout_height="30dp"
+
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_alignTop="@+id/ll_showimage"
@@ -892,8 +831,7 @@
             android:layout_toRightOf="@+id/ll_showimage"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
-            android:visibility="visible"
-       />
+            android:visibility="visible" />
         <!--  android:text="生成测试"
             android:textColor="#000000"
             android:textSize="10dp"-->
