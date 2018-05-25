@@ -13,6 +13,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -31,6 +32,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -159,9 +161,12 @@ public class GraffitiActivity extends Activity {
                     Bitmap bitmap = (Bitmap) msg.obj;
                     iv_showImage.setImageBitmap(bitmap);
                     break;
+                case 2:
+                    Toast.makeText(GraffitiActivity.this,"联网失败",Toast.LENGTH_SHORT);
             }
         }
     };
+    private HorizontalScrollView hl_building;
 
 
 //    @Override
@@ -179,6 +184,8 @@ public class GraffitiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         //初始化xutils3.5
         x.Ext.init(getApplication());
@@ -342,6 +349,23 @@ public class GraffitiActivity extends Activity {
 //
         initView();
     }
+
+    //沉浸式状态栏
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
 
     private GraffitiView addCanvas(Bitmap bitmap){
 
@@ -637,8 +661,12 @@ public class GraffitiActivity extends Activity {
         findViewById(R.id.btn_shoes).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_bag).setOnClickListener(mOnClickListener);
 
+
+
         findViewById(R.id.btn_test).setOnClickListener(mOnClickListener);
-        iv_showImage = (ImageView) findViewById(R.id.iv_showimage);
+        iv_showImage = (ImageView) findViewById(R.id.iv_showimage);//生成图片区
+
+        hl_building = (HorizontalScrollView) findViewById(R.id.hl_building);//显示画建筑的工具
 
 
 
@@ -926,7 +954,10 @@ public class GraffitiActivity extends Activity {
                     }, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            finish();
+//                            finish();
+                            android.os.Process.killProcess(android.os.Process.myPid()); //获取PID
+                            System.exit(0); //常规java、c#的标准退出法，返回值为0代表正常退出
+
                         }
                     });
                 }
@@ -965,7 +996,7 @@ public class GraffitiActivity extends Activity {
                 return;
             }
 
-            if (v.getId() == R.id.btn_hand_write) {
+            if (v.getId() == R.id.btn_hand_write) {//手绘
                 mGraffitiView.setShape(GraffitiView.Shape.HAND_WRITE);
             } else if (v.getId() == R.id.btn_arrow) {
                 mGraffitiView.setShape(GraffitiView.Shape.ARROW);
@@ -1010,6 +1041,9 @@ public class GraffitiActivity extends Activity {
                 mGraffitiView.setCavBitmap(mBitmap);
                 mGraffitiView.setShape(GraffitiView.Shape.FILL_RECT);
 
+                //出现画建筑工具
+                hl_building.setVisibility(View.VISIBLE);
+
                 mGraffitiView.clear();//清屏
                 mDone = true;
 
@@ -1017,14 +1051,20 @@ public class GraffitiActivity extends Activity {
             }else if (v.getId() == R.id.btn_cat){//画猫
 
                 sendBitmap(R.drawable.inputcats);
+                //隐藏画建筑工具
+                hl_building.setVisibility(View.GONE);
 
             }else if (v.getId() == R.id.btn_shoes){//画鞋
 
                 sendBitmap(R.drawable.inputshoes);
+                //隐藏画建筑工具
+                hl_building.setVisibility(View.GONE);
 
             }else if (v.getId() == R.id.btn_bag){//画包
 
                 sendBitmap(R.drawable.inputhandbags);
+                //隐藏画建筑工具
+                hl_building.setVisibility(View.GONE);
 
             }else if (v.getId() == R.id.btn_test){//生成测试
 
@@ -1246,9 +1286,10 @@ public class GraffitiActivity extends Activity {
 //                iv_showImage.setImageBitmap(bm);
             }
             String base64 = BitmapToStrByBase64(bm);
+            Log.i("644444",base64);
 
             String jsonSend = gson.toJson(new imageMessage("image", base64));
-            RequestParams params = new RequestParams("http://172.20.10.5:8000/gan/facades_B2A/");
+            RequestParams params = new RequestParams("http://49.123.112.217:8000/gan/facades_B2A/");
             params.addHeader("Content-type", "application/json");
             params.setCharset("UTF-8");
             params.setAsJsonContent(true);
@@ -1293,6 +1334,9 @@ public class GraffitiActivity extends Activity {
         @Override
         public void onError(Throwable ex, boolean isOnCallback) {
             Log.i("cnt", "onError");
+            Message msg = new Message();
+            msg.what = 2;
+            mHandler.sendMessage(msg);
         }
 
         @Override

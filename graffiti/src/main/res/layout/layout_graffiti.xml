@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
-             android:background="#ffffff"
-             android:fitsSystemWindows="true"
-             android:orientation="vertical">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_paintboard"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -14,15 +14,15 @@
         <include
             android:id="@+id/graffiti__title_bar"
             layout="@layout/graffiti__title_bar"
-            android:visibility="visible"/>
+            android:visibility="gone" />
 
         <!--<FrameLayout-->
-            <!--android:id="@+id/graffiti_container"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_alignParentTop="true" />-->
+        <!--android:id="@+id/graffiti_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true" />-->
 
         <!--<TextView-->
         <!--android:id="@+id/tv_splite"-->
@@ -34,197 +34,214 @@
         <!--/>-->
         <RelativeLayout
             android:id="@+id/ll_showimage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/graffiti__title_bar"
-            >
+            android:layout_width="240dp"
+            android:layout_height="280dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="8dp">
+            <!--android:background="#777777"-->
+
             <ImageView
                 android:id="@+id/iv_showimage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="@drawable/outputcats"
-                android:layout_centerInParent="true"/>
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/outputcats" />
         </RelativeLayout>
         <!--<ImageView-->
-            <!--android:id="@+id/iv_showimage"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_below="@+id/graffiti__title_bar"-->
-            <!--android:background="@drawable/outputcats"-->
-            <!--android:scaleType="centerInside"/>-->
+        <!--android:id="@+id/iv_showimage"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:layout_below="@+id/graffiti__title_bar"-->
+        <!--android:background="@drawable/outputcats"-->
+        <!--android:scaleType="centerInside"/>-->
 
         <TextView
             android:id="@+id/tv_splite"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/ll_showimage"
-            android:background="@drawable/graffiti_shader2" />
+            android:background="#000000"
+            android:visibility="visible" />
+        <!--#F4F4F4-->
 
         <RelativeLayout
             android:id="@+id/graffiti_panel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/tv_splite">
+            android:layout_width="250dp"
+            android:layout_height="310dp"
+            android:layout_below="@id/tv_splite"
+            android:layout_marginLeft="60dp"
 
+            >
+            <!--android:background="#FF9D8D"-->
             <FrameLayout
                 android:id="@+id/graffiti_container"
-                android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" />
+                android:layout_below="@+id/graffiti_edit_container"
+                android:visibility="visible" />
+
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                android:layout_alignParentBottom="true">
+                android:visibility="visible">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="horizontal">
+                <!--<HorizontalScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:scrollbars="horizontal"-->
+                <!--android:visibility="visible">-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:orientation="horizontal">
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:visibility="visible"-->
+                <!--&gt;-->
 
-                        <Button
-                            android:id="@+id/btn_pen_hand"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="手绘"
-                            android:textColor="#000000"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
+                <!--<Button-->
+                <!--android:id="@+id/btn_pen_hand"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="手绘"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="gone" />-->
 
-                        <Button
-                            android:id="@+id/btn_pen_copy"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="仿制"
-                            android:textColor="#000000"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                <!--<Button-->
+                <!--android:id="@+id/btn_pen_copy"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="仿制"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="gone" />-->
 
-                        <Button
-                            android:id="@+id/btn_pen_eraser"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/btn_pen_eraser"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="50dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@drawable/graffiti_btn_effect_round"&ndash;&gt;-->
 
-                            android:scaleType="centerCrop"
-                            android:text="橡皮擦"
-                            android:textColor="#000000"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
+                <!--&lt;!&ndash;android:scaleType="centerCrop"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="橡皮擦"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="#000000"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="13dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:visibility="gone" />&ndash;&gt;-->
 
-                        <Button
-                            android:id="@+id/btn_pen_text"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="文字"
-                            android:textColor="#000000"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/btn_pen_text"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="50dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@drawable/graffiti_btn_effect_round"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:scaleType="centerCrop"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="文字"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="#000000"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="13dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:visibility="gone" />&ndash;&gt;-->
 
-                        <Button
-                        android:id="@+id/btn_pen_bitmap"
-                        android:layout_width="50dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/graffiti_btn_effect_round"
-                        android:scaleType="centerCrop"
-                        android:text="贴图"
-                        android:textColor="#000000"
-                        android:textSize="13dp"
-                        android:visibility="gone" />
-                        <Button
-                            android:id="@+id/btn_wall"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="wall"
-                            android:textColor="#163BF7"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_door"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="door"
-                            android:textColor="#9B000F"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_window"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="window"
-                            android:textColor="#136DFB"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_trim"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="trim"
-                            android:textColor="#FD8821"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_column"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:scaleType="centerCrop"
-                            android:text="column"
-                            android:textColor="#F20017"
-                            android:textSize="13dp"
-                            android:visibility="visible" />
+                <!--<Button-->
+                <!--android:id="@+id/btn_pen_bitmap"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="贴图"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="gone" />-->
 
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:minWidth="10dp" />
+                <!--<Button-->
+                <!--android:id="@+id/btn_wall"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="wall"-->
+                <!--android:textColor="#163BF7"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="visible" />-->
 
-                        <Button
-                            android:id="@+id/btn_clear"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:text="清屏"
-                            android:textColor="#000000"
-                            android:textSize="13dp" />
+                <!--<Button-->
+                <!--android:id="@+id/btn_door"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="door"-->
+                <!--android:textColor="#9B000F"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="visible" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_window"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="window"-->
+                <!--android:textColor="#136DFB"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="visible" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_trim"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="trim"-->
+                <!--android:textColor="#FD8821"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="visible" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_column"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/graffiti_btn_effect_round"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:text="column"-->
+                <!--android:textColor="#F20017"-->
+                <!--android:textSize="13dp"-->
+                <!--android:visibility="visible" />-->
 
-                        <Button
-                            android:id="@+id/btn_undo"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_round"
-                            android:text="撤销"
-                            android:textColor="#000000"
-                            android:textSize="13dp" />
-                    </LinearLayout>
+                <!--<FrameLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:minWidth="10dp" />-->
 
-                </HorizontalScrollView>
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/btn_clear"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="40dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@drawable/graffiti_btn_effect_round"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="清屏"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="#000000"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="13dp" />&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/btn_undo"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="40dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@drawable/graffiti_btn_effect_round"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="撤销"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="#000000"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="13dp" />&ndash;&gt;-->
+                <!--</LinearLayout>-->
+
+                <!--</HorizontalScrollView>-->
 
                 <LinearLayout
                     android:id="@+id/bar_paint_mode"
@@ -274,15 +291,15 @@
                         android:orientation="horizontal"
                         android:visibility="visible">
 
-                        <Button
-                            android:id="@+id/btn_hand_write"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
-                            android:text="手绘"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_hand_write"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
+                        <!--android:text="手绘"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="visible" />-->
 
                         <Button
                             android:id="@+id/btn_arrow"
@@ -295,16 +312,16 @@
                             android:textSize="10dp"
                             android:visibility="gone" />
 
-                        <Button
-                            android:id="@+id/btn_line"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_line"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
 
-                            android:text="直线"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="gone" />
+                        <!--android:text="直线"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="gone" />-->
 
                         <Button
                             android:id="@+id/btn_holl_circle"
@@ -342,61 +359,50 @@
                             android:textSize="10dp"
                             android:visibility="gone" />
 
-                        <Button
-                            android:id="@+id/btn_fill_rect"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_fill_rect"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
 
-                            android:scaleType="centerCrop"
-                            android:text="画建筑"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_cat"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:text="画建筑"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="visible" />-->
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_cat"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
 
-                            android:scaleType="centerCrop"
-                            android:text="画猫"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_shoes"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:text="画猫"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="visible" />-->
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_shoes"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
 
-                            android:scaleType="centerCrop"
-                            android:text="画鞋"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_bag"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:text="画鞋"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="visible" />-->
+                        <!--<Button-->
+                        <!--android:id="@+id/btn_bag"-->
+                        <!--android:layout_width="50dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/graffiti_btn_effect_rect_line"-->
 
-                            android:scaleType="centerCrop"
-                            android:text="画包"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
-                        <Button
-                            android:id="@+id/btn_test"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/graffiti_btn_effect_rect_line"
-
-                            android:scaleType="centerCrop"
-                            android:text="生成测试"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:visibility="visible" />
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:text="画包"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="10dp"-->
+                        <!--android:visibility="visible" />-->
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -558,21 +564,277 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <!--<TextView-->
-        <!--android:id="@+id/tv_splite"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="20dp"-->
-        <!--android:layout_below="@+id/graffiti_panel"-->
-        <!--android:background="@drawable/graffiti_shader2"-->
-        <!--android:text="下面是结果"-->
-        <!--/>-->
-        <!--<ImageView-->
-        <!--android:id="@+id/iv_showimage"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/tv_splite"-->
-        <!--android:background="@drawable/showimage"-->
-        <!--/>-->
+        <Button
+            android:id="@+id/btn_undo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/graffiti_panel"
+            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/graffiti_panel"
+            android:layout_toRightOf="@+id/graffiti_panel"
+            android:background="@android:color/transparent"
+            />
+        <!-- android:text="撤销"
+            android:textColor="#000000"
+            android:textSize="13dp"-->
+
+        <!--画建筑时候显示的所有按钮-->
+        <HorizontalScrollView
+            android:id="@+id/hl_building"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="60dp"
+            android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn_pen_hand"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="手绘"
+                android:textColor="#000000"
+                android:textSize="13dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_pen_copy"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="仿制"
+                android:textColor="#000000"
+                android:textSize="13dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_pen_bitmap"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="贴图"
+                android:textColor="#000000"
+                android:textSize="13dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_wall"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="wall"
+                android:textColor="#163BF7"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_door"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="door"
+                android:textColor="#9B000F"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_window"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="window"
+                android:textColor="#136DFB"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_trim"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="trim"
+                android:textColor="#FD8821"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_column"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/graffiti_btn_effect_round"
+                android:scaleType="centerCrop"
+                android:text="column"
+                android:textColor="#F20017"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:minWidth="10dp" />
+        </LinearLayout>
+        </HorizontalScrollView>
+
+
+            <!--左侧工具栏-->
+            <LinearLayout
+                android:layout_width="48dp"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+
+                >
+
+                <!--@drawable/graffiti_btn_effect_round-->
+                <Button
+                    android:id="@+id/btn_hand_write"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!--   android:text="手绘"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+
+                <Button
+                    android:id="@+id/btn_pen_eraser"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!--    android:text="橡皮擦"
+                    android:textColor="#000000"
+                    android:textSize="13dp"-->
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                   />
+                <!--  android:text="清屏"
+                    android:textColor="#000000"
+                    android:textSize="13dp"-->
+
+                <Button
+                    android:id="@+id/btn_line"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!--  android:text="直线"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+
+                <Button
+                    android:id="@+id/btn_pen_text"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:enabled="false"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!--  android:text="文字"
+                    android:textColor="#000000"
+                    android:textSize="13dp"-->
+
+                <Button
+                    android:id="@+id/btn_fill_rect"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!-- android:text="画建筑"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+
+                <Button
+                    android:id="@+id/btn_cat"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!-- android:text="画猫"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+
+                <Button
+                    android:id="@+id/btn_bag"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+                <!--  android:text="画包"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+
+                <Button
+                    android:id="@+id/btn_shoes"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+
+                    android:visibility="visible" />
+
+                <!--android:background="#000000"
+                android:background="@android:color/transparent"
+                android:text="画鞋"
+                    android:textColor="#000000"
+                    android:textSize="10dp"-->
+            </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignTop="@+id/ll_showimage"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/ll_showimage"
+            android:layout_toRightOf="@+id/ll_showimage"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+        <!--  android:text="生成测试"
+            android:textColor="#000000"
+            android:textSize="10dp"-->
 
     </RelativeLayout>
 </FrameLayout>
