@@ -1093,6 +1093,7 @@ public class GraffitiActivity extends Activity {
                 //出现画建筑工具
                 hl_building.setVisibility(View.VISIBLE);
 
+
                 mGraffitiView.clear();//清屏
                 mDone = true;
 
