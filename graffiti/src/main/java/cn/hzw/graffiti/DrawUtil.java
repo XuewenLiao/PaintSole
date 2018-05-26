@@ -7,7 +7,7 @@ import android.graphics.Path;
 import cn.forward.androids.utils.LogUtil;
 
 /**
- * Created by Administrator on 2016/9/3.
+ * Created by XuewenLiao on 2018/5/26.
  */
 public class DrawUtil {
 

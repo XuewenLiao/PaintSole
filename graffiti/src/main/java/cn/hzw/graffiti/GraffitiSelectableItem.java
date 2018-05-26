@@ -11,7 +11,7 @@ import static cn.hzw.graffiti.DrawUtil.rotatePointInGraffiti;
 
 /**
  * 可选择的涂鸦条目，例如文字、图片
- * Created by huangziwei on 2017/7/16.
+ * Created by XuewenLiao on 2018/5/26.
  */
 
 public abstract class GraffitiSelectableItem implements Undoable {

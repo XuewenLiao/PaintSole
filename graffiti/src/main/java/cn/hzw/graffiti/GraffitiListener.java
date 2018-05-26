@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 /**
  * 涂鸦框架相关的回调
- * Created by huangziwei on 2017/3/17.
+ * Created by XuewenLiao on 2018/5/26.
  */
 
 public interface GraffitiListener {

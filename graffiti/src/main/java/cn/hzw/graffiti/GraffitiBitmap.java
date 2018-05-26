@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import static cn.hzw.graffiti.DrawUtil.GRAFFITI_PIXEL_UNIT;
 
 /**
- * Created by huangziwei on 2017/3/16.
+ * Created by XuewenLiao on 2018/5/26.
  */
 
 public class GraffitiBitmap extends GraffitiSelectableItem {

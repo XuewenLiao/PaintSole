@@ -12,7 +12,7 @@ import cn.forward.androids.base.InjectionLayoutInflater;
 import cn.forward.androids.utils.StatusBarUtil;
 
 /**
- * Created by huangziwei on 2017/4/21.
+ * Created by XuewenLiao on 2018/5/26.
  */
 
 public class DialogController {

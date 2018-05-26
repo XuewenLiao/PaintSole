@@ -67,7 +67,7 @@ public class GraffitiActivity extends Activity {
 
     public static final int RESULT_ERROR = -111; // 出现错误
 
-    public static final String IP = "http://49.123.112.217:8000/gan/";
+    public static final String IP = "http://192.168.43.76:8000/gan/";
 
     private int type = 1;// 1 建筑；2 街景；3 包；4 鞋
     private String URL = "";

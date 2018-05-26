@@ -27,7 +27,7 @@ import static cn.hzw.graffiti.DrawUtil.drawLine;
 import static cn.hzw.graffiti.DrawUtil.drawRect;
 
 /**
- * Created by huangziwei on 2016/9/3.
+ * Created by XuewenLiao on 2018/5/26.
  */
 public class GraffitiView extends View {
 

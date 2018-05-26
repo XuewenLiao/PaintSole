@@ -11,7 +11,7 @@ import android.view.View;
 /**
  * 涂鸦参数
  */
-public class GraffitiParams implements Parcelable {
+public class  GraffitiParams implements Parcelable {
 
     /**
      * 图片路径
