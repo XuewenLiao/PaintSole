@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
@@ -183,6 +184,16 @@ public class GraffitiActivity extends Activity {
         }
     };
     private HorizontalScrollView hl_building;
+    private Button btn_wall;
+    private Button btn_door;
+    private Button btn_window;
+    private Button btn_trim;
+    private Button btn_column;
+    private Button btn_floor;
+    private Button btn_grass;
+    private Button btn_car;
+    private Button btn_tree;
+    private Button btn_lamp;
 
 
 //    @Override
@@ -667,16 +678,46 @@ public class GraffitiActivity extends Activity {
     private void initView() {
 
         //颜色按钮
-        findViewById(R.id.btn_wall).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_door).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_window).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_trim).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_column).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_floor).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_grass).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_car).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_tree).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_lamp).setOnClickListener(mOnClickListener);
+        btn_wall = (Button) findViewById(R.id.btn_wall);
+        btn_wall.setOnClickListener(mOnClickListener);
+
+        btn_door = (Button) findViewById(R.id.btn_door);
+        btn_door.setOnClickListener(mOnClickListener);
+
+        btn_window = (Button) findViewById(R.id.btn_window);
+        btn_window.setOnClickListener(mOnClickListener);
+
+        btn_trim = (Button) findViewById(R.id.btn_trim);
+        btn_trim.setOnClickListener(mOnClickListener);
+
+        btn_column = (Button) findViewById(R.id.btn_column);
+        btn_column.setOnClickListener(mOnClickListener);
+
+        btn_floor = (Button) findViewById(R.id.btn_floor);
+        btn_floor.setOnClickListener(mOnClickListener);
+
+        btn_grass = (Button) findViewById(R.id.btn_grass);
+        btn_grass.setOnClickListener(mOnClickListener);
+
+        btn_car = (Button) findViewById(R.id.btn_car);
+        btn_car.setOnClickListener(mOnClickListener);
+
+        btn_tree = (Button) findViewById(R.id.btn_tree);
+        btn_tree.setOnClickListener(mOnClickListener);
+
+        btn_lamp = (Button) findViewById(R.id.btn_lamp);
+        btn_lamp.setOnClickListener(mOnClickListener);
+
+//        findViewById(R.id.btn_wall).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_door).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_window).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_trim).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_column).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_floor).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_grass).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_car).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_tree).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.btn_lamp).setOnClickListener(mOnClickListener);
 
 
         findViewById(R.id.btn_cityscapes).setOnClickListener(mOnClickListener);
@@ -703,7 +744,9 @@ public class GraffitiActivity extends Activity {
         findViewById(R.id.btn_holl_circle).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_fill_circle).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_holl_rect).setOnClickListener(mOnClickListener);
-        findViewById(R.id.btn_fill_rect).setOnClickListener(mOnClickListener);
+        findViewById(R.id.btn_fill_rect).setOnClickListener(mOnClickListener);;
+
+
         findViewById(R.id.btn_clear).setOnClickListener(mOnClickListener);
         findViewById(R.id.btn_undo).setOnClickListener(mOnClickListener);
         findViewById(R.id.graffiti_selectable_edit).setOnClickListener(mOnClickListener);
@@ -1093,6 +1136,19 @@ public class GraffitiActivity extends Activity {
                 //出现画建筑工具
                 hl_building.setVisibility(View.VISIBLE);
 
+                btn_wall.setVisibility(View.VISIBLE);
+                btn_door.setVisibility(View.VISIBLE);
+                btn_window.setVisibility(View.VISIBLE);
+                btn_trim.setVisibility(View.VISIBLE);
+                btn_column.setVisibility(View.VISIBLE);
+
+                //隐藏街景工具栏
+                btn_floor.setVisibility(View.GONE);
+                btn_grass.setVisibility(View.GONE);
+                btn_car.setVisibility(View.GONE);
+                btn_tree.setVisibility(View.GONE);
+                btn_lamp.setVisibility(View.GONE);
+
 
                 mGraffitiView.clear();//清屏
                 mDone = true;
@@ -1110,6 +1166,20 @@ public class GraffitiActivity extends Activity {
                 mGraffitiView.setShape(GraffitiView.Shape.HAND_WRITE);
                 //出现画建筑工具
                 hl_building.setVisibility(View.VISIBLE);
+
+                btn_floor.setVisibility(View.VISIBLE);
+                btn_grass.setVisibility(View.VISIBLE);
+                btn_car.setVisibility(View.VISIBLE);
+                btn_tree.setVisibility(View.VISIBLE);
+                btn_lamp.setVisibility(View.VISIBLE);
+
+                //隐藏建筑工具栏
+                btn_wall.setVisibility(View.GONE);
+                btn_door.setVisibility(View.GONE);
+                btn_window.setVisibility(View.GONE);
+                btn_trim.setVisibility(View.GONE);
+                btn_column.setVisibility(View.GONE);
+
                 mGraffitiView.setPaintSize(10.5f);
                 mGraffitiView.clear();//清屏
                 mDone = true;

@@ -35,7 +35,7 @@
         <RelativeLayout
             android:id="@+id/ll_showimage"
             android:layout_width="240dp"
-            android:layout_height="280dp"
+            android:layout_height="248dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="8dp">
             <!--android:background="#777777"-->
@@ -571,7 +571,7 @@
             android:layout_alignTop="@+id/graffiti_panel"
             android:layout_marginLeft="7dp"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="80dp"
             android:layout_toEndOf="@+id/graffiti_panel"
             android:layout_toRightOf="@+id/graffiti_panel"
             android:background="@android:color/transparent"
@@ -634,106 +634,82 @@
                 android:id="@+id/btn_wall"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_wall"
                 android:scaleType="centerCrop"
-                android:text="wall"
-                android:textColor="#163BF7"
-                android:textSize="13dp"
                 android:visibility="visible" />
+            <!--  android:text="wall"
+                android:textColor="#163BF7"
+                android:textSize="13dp"-->
 
             <Button
                 android:id="@+id/btn_door"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_door"
                 android:scaleType="centerCrop"
-                android:text="door"
-                android:textColor="#9B000F"
-                android:textSize="13dp"
                 android:visibility="visible" />
+            <!--  android:text="door"
+                android:textColor="#9B000F"
+                android:textSize="13dp"-->
 
             <Button
                 android:id="@+id/btn_window"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_window"
                 android:scaleType="centerCrop"
-                android:text="window"
-                android:textColor="#136DFB"
-                android:textSize="13dp"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/btn_trim"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_trim"
                 android:scaleType="centerCrop"
-                android:text="trim"
-                android:textColor="#FD8821"
-                android:textSize="13dp"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/btn_column"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_column"
                 android:scaleType="centerCrop"
-                android:text="column"
-                android:textColor="#F20017"
-                android:textSize="13dp"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/btn_floor"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_floor"
                 android:scaleType="centerCrop"
-                android:text="floor"
-                android:textColor="#8B397D"
-                android:textSize="13dp"
                 android:visibility="visible" />
             <Button
                 android:id="@+id/btn_grass"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_grass"
                 android:scaleType="centerCrop"
-                android:text="grass"
-                android:textColor="#6CFF9A"
-                android:textSize="13dp"
                 android:visibility="visible" />
             <Button
                 android:id="@+id/btn_car"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_car"
                 android:scaleType="centerCrop"
-                android:text="car"
-                android:textColor="#1E008E"
-                android:textSize="13dp"
                 android:visibility="visible" />
             <Button
                 android:id="@+id/btn_tree"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_tree"
                 android:scaleType="centerCrop"
-                android:text="tree"
-                android:textColor="#5C912C"
-                android:textSize="13dp"
                 android:visibility="visible" />
             <Button
                 android:id="@+id/btn_lamp"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/graffiti_btn_effect_round"
+                android:background="@drawable/btn_effect_lamp"
                 android:scaleType="centerCrop"
-                android:text="lamp"
-                android:textColor="#DBDF21"
-                android:textSize="13dp"
                 android:visibility="visible" />
 
 

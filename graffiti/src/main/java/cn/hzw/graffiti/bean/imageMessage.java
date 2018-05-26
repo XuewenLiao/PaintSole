@@ -1,7 +1,7 @@
 package cn.hzw.graffiti.bean;
 
 /**
- * Created by lj_xwl on 2018/5/23.
+ * Created by lj_xwl on 2018/5/26.
  */
 
 public class imageMessage {
