@@ -79,9 +79,7 @@ public class MainActivity extends Activity {
 //                // 启动涂鸦页面
 //                GraffitiActivity.startActivityForResult(MainActivity.this, params, REQ_CODE_GRAFFITI);
 //            }
-//        } else if (requestCode == REQ_CODE_GRAFFITI) {
-//            if (data == null) {
-//                return;
+//        } else if (requestCode =//                return;
 //            }
 //            if (resultCode == GraffitiActivity.RESULT_OK) {
 //                String path = data.getStringExtra(GraffitiActivity.KEY_IMAGE_PATH);
