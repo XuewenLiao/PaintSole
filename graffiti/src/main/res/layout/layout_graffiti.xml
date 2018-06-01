@@ -45,7 +45,8 @@
                 android:layout_width="240dp"
                 android:layout_height="240dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/outputcats" />
+                 />
+            <!--android:background="@drawable/outputcats"-->
         </RelativeLayout>
         <!--<ImageView-->
         <!--android:id="@+id/iv_showimage"-->

@@ -68,7 +68,7 @@ public class GraffitiActivity extends Activity {
 
     public static final int RESULT_ERROR = -111; // 出现错误
 
-    public static final String IP = "http://192.168.43.76:8000/gan/";
+    public static final String IP = "http://172.20.10.9:8000/gan/";
 
     private int type = 1;// 1 建筑；2 街景；3 包；4 鞋
     private String URL = "";
@@ -1197,6 +1197,8 @@ public class GraffitiActivity extends Activity {
                 hl_building.setVisibility(View.GONE);
                 mGraffitiView.setPaintSize(1);//设置画笔大小
                 mGraffitiView.setColor(Color.parseColor("#000000"));
+                mGraffitiView.clear();//清屏
+                mDone = true;
 
             }else if (v.getId() == R.id.btn_bag){//画包
 
@@ -1211,6 +1213,8 @@ public class GraffitiActivity extends Activity {
                 hl_building.setVisibility(View.GONE);
                 mGraffitiView.setPaintSize(1);//设置画笔大小
                 mGraffitiView.setColor(Color.parseColor("#000000"));
+                mGraffitiView.clear();//清屏
+                mDone = true;
 
             }else if (v.getId() == R.id.btn_test){//生成测试
 
